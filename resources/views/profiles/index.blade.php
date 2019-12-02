@@ -4,14 +4,18 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://scontent-amt2-1.cdninstagram.com/vp/330715716e83a73b454bb22ad2b120bc/5E6818B9/t51.2885-19/s320x320/54513151_395963541187314_4040069701471043584_n.jpg?_nc_ht=scontent-amt2-1.cdninstagram.com" class="rounded-circle w-100">
+            <img src="{{ $user->profile->profileImage() }}" class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
-                <h1>{{ $user->username }}</h1>
+                <div class="d-flex align-items-center">
+                    <div class="h1">{{ $user->username }}</div>
+
+                    <follow-button></follow-button>
+                </div>
 
                 @can('update', $user->profile)
-                    <a href="/post/create">Add new post</a>
+                    <a href="/post/create">Add new item</a>
                 @endcan
             </div>
 
@@ -20,9 +24,9 @@
             @endcan
 
             <div class="d-flex">
-                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
-                <div class="pr-5"><strong>390</strong> followers</div>
-                <div class="pr-5"><strong>488</strong> following</div>
+                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> items on list</div>
+{{--                <div class="pr-5"><strong>390</strong> followers</div>--}}
+{{--                <div class="pr-5"><strong>488</strong> following</div>--}}
             </div>
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
             <div>{{ $user->profile->description }}</div>
@@ -41,3 +45,15 @@
     </div>
 </div>
 @endsection
+
+{{-- Voor Rijen met de items
+<div class="row pt-4 d-flex">
+    @foreach($user->posts as $post)
+        <div class="col-8 pb-4">
+            <a href="/post/{{ $post->id }}">
+                <a>{{ $post-> caption }}</a>
+            </a>
+        </div>
+    @endforeach
+</div>
+--}}

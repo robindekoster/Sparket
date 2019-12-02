@@ -9,11 +9,11 @@
             <div class="col-8 offset-2">
 
                 <div class="row">
-                    <h1>Add new post</h1>
+                    <h1>Add new item</h1>
                 </div>
 
                 <div class="form-group row">
-                    <label for="caption" class="col-md-4 col-form-label">{{ __('Post Caption') }}</label>
+                    <label for="caption" class="col-md-4 col-form-label">{{ __('Name') }}</label>
 
                     <input id="caption"
                            type="text"
@@ -35,12 +35,12 @@
 
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="image">Upload</span>
+                            <span class="input-group-text" id="image">Upload<p/span>
                         </div>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="image" name="image"
                                    aria-describedby="image">
-                            <label class="custom-file-label" for="image">Choose file</label>
+                            <label class="custom-file-label" for="image"></label>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="row pt-5">
-                    <button class="btn btn-primary">Add new post</button>
+                    <button class="btn btn-primary">Add new item</button>
                 </div>
 
             </div>
